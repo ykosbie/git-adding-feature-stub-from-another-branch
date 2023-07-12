@@ -4,7 +4,7 @@
     {
         public ILogger GetLogger()
         {
-            return new NullLogger();
+            return new ConsoleLogger();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.Logging;
+﻿﻿using ConsoleApp1.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,11 @@ namespace ConsoleApp1
             var loggerFactory = new DefaultLoggerFactory();
             var logger = loggerFactory.GetLogger();
 
+            Console.Write("Name> ");
+            var name = Console.ReadLine();
+
+            logger.Log($"Hello {name}!");
+            
             Console.Write("How many fib digits> ");
             var digitsRaw = Console.ReadLine();
             if(int.TryParse(digitsRaw, out var max))
