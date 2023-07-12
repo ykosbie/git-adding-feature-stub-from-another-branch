@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,14 +9,22 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            var loggerFactory = new DefaultLoggerFactory();
+            var logger = loggerFactory.GetLogger();
+
             Console.Write("How many fib digits> ");
             var digitsRaw = Console.ReadLine();
             if(int.TryParse(digitsRaw, out var max))
             {
+                logger.Log($"Will show {max} digits of fibo");
                 foreach(var digit in Fib().Take(max))
                 {
                     Console.WriteLine(digit);
                 }
+            }
+            else
+            {
+                logger.Log($"Failed to parse {digitsRaw}, not a valid int");
             }
         }
 
