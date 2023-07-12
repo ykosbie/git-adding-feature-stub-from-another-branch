@@ -21,10 +21,15 @@ namespace ConsoleApp1
             var digitsRaw = Console.ReadLine();
             if(int.TryParse(digitsRaw, out var max))
             {
+                logger.Log($"Will show {max} digits of fibo");
                 foreach(var digit in Fib().Take(max))
                 {
                     Console.WriteLine(digit);
                 }
+            }
+            else
+            {
+                logger.Log($"Failed to parse {digitsRaw}, not a valid int");
             }
         }
 
