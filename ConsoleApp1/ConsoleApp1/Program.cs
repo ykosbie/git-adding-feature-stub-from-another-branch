@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.Logging;
+using System;
 
 namespace ConsoleApp1
 {
@@ -9,7 +10,10 @@ namespace ConsoleApp1
             var loggerFactory = new DefaultLoggerFactory();
             var logger = loggerFactory.GetLogger();
 
-            logger.Log("Hello World!");
+            Console.Write("Name> ");
+            var name = Console.ReadLine();
+
+            logger.Log($"Hello {name}!");
         }
     }
 }
